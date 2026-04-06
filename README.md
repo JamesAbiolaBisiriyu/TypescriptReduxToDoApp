@@ -1,47 +1,75 @@
-# React + TypeScript + Vite
+# Todo Application (React + Redux Toolkit)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a modern Todo List application built with React, Redux Toolkit, and TypeScript. It demonstrates best practices in component structure, state management, and UI design, and is fully commented for easy understanding and maintainability.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Add a new todo:** Users can add tasks with a description.
+- **Edit a task:** Inline editing of task descriptions.
+- **Mark as done/not done:** Toggle completion status for each task.
+- **Filter tasks:** View all, active, or completed tasks using filter buttons.
+- **Clear completed:** Remove all completed tasks with one click.
+- **Dark mode:** Toggle between light and dark themes.
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+  assets/styles.css         # Main CSS for the app (light/dark mode, layout, etc.)
+  Components/
+    AddTask.tsx             # Form for adding new tasks
+    ListTask.tsx            # Renders filter buttons, task list, and clear completed
+    Task.tsx                # Single task with edit, complete, delete controls
+  redux/
+    features/todoSlice.ts   # Redux slice for todos (actions, reducers, types)
+    store.ts                # Redux store configuration
+  App.tsx                   # Main app layout and theme toggle
+  main.tsx                  # React entry point, Redux Provider
+```
+
+## How It Works
+
+- **Redux State:**
+  - All tasks and filter state are managed globally using Redux Toolkit.
+  - Each task has an `id`, `description`, and `isDone` status.
+  - Actions include: addTask, editTask, toggleTask, setFilter, clearCompleted.
+
+- **Component Breakdown:**
+  - `AddTask`: Controlled input and form for adding new todos.
+  - `ListTask`: Renders filter buttons, the list of tasks, and the clear completed button.
+  - `Task`: Handles displaying, editing, toggling, and (placeholder for) deleting a single task.
+
+- **Styling:**
+  - All UI is styled with a single CSS file for consistency and easy theming.
+  - Responsive and accessible design.
+
+## Getting Started
+
+1. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+2. **Run the app in development:**
+   ```sh
+   npm run dev
+   ```
+3. **Open your browser:**
+   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+## Customization & Maintenance
+
+- All code is thoroughly commented for easy onboarding and future maintenance.
+- To add features (e.g., delete task), extend the Redux slice and update the UI components.
+- To change the theme or layout, edit `src/assets/styles.css`.
+
+## License
+
+MIT
+},
+},
+])
+
+````
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
@@ -70,4 +98,4 @@ export default defineConfig([
     },
   },
 ])
-```
+````

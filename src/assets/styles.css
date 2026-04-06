@@ -1,0 +1,326 @@
+/* Main body styling for centering and font */
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Container for the todo app */
+.container {
+  background: white;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+/* Title styling */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+/* Theme toggle section */
+#theme-toggle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Dark mode button styling */
+#dark-mode-btn {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#dark-mode-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Dark mode button in dark mode */
+body.dark-mode #dark-mode-btn {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode #dark-mode-btn:hover {
+  background-color: #555;
+}
+
+/* Todo form styling */
+#todo-form {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+/* Todo input styling */
+#todo-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#todo-input:focus {
+  border-color: #007bff;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  padding: 12px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Filters section */
+#filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Filter button styling */
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  background: none;
+  color: #666;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* List styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* List item styling */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #fef3c7;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+li:nth-child(odd) {
+  transform: rotate(1deg);
+}
+
+li:nth-child(even) {
+  transform: rotate(-1deg);
+}
+
+li:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+li.completed .task-text {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1.1rem;
+  transition: opacity 0.2s;
+}
+
+/* Complete and delete buttons */
+.complete-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.complete-btn:hover {
+  background-color: #e8f5e8;
+  color: #28a745;
+}
+
+.delete-btn:hover {
+  background-color: #fceaea;
+  color: #dc3545;
+}
+
+/* Clear completed button */
+#clear-completed {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  background: none;
+  color: #666;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#clear-completed:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .container {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode h1 {
+  color: #fff;
+}
+
+body.dark-mode li {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark-mode #todo-input {
+  background-color: #333;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+body.dark-mode #todo-input:focus {
+  border-color: #007bff;
+}
+
+body.dark-mode button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+body.dark-mode .filter-btn {
+  border-color: #555;
+  color: #ccc;
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .filter-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+body.dark-mode .filter-btn:hover {
+  background-color: #333;
+}
+
+body.dark-mode #clear-completed {
+  border-color: #555;
+  color: #ccc;
+  background-color: #2a2a2a;
+}
+
+body.dark-mode #clear-completed:hover {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #todo-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #filters {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  li {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .task-text {
+    font-size: 1rem;
+  }
+
+  .complete-btn,
+  .delete-btn {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
+
+  #clear-completed {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
