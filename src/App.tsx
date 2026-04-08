@@ -1,13 +1,13 @@
 
 
-import AddTask from "./Components/AddTask";
-import ListTask from "./Components/ListTask";
+import AddTask from "./component/AddTask";
+import ListTask from "./component/ListTask";
 import React, { useState } from "react";
 import "./assets/styles.css";
 
 
-const App: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(false);
+function App() {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   React.useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
@@ -29,6 +29,6 @@ const App: React.FC = () => {
       <ListTask />
     </div>
   );
-};
+}
 
 export default App;

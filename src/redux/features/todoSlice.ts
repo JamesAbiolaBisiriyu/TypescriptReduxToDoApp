@@ -1,27 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-/**
- * Task type definition
- * @property id - Unique identifier for the task
- * @property description - The task description
- * @property isDone - Completion status
- */
-export type Task = {
-  id: number;
-  description: string;
-  isDone: boolean;
-};
-
-/**
- * TodoState type definition
- * @property tasks - Array of tasks
- * @property filter - Current filter ('all', 'done', 'not')
- */
-interface TodoState {
-  tasks: Task[];
-  filter: 'all' | 'done' | 'not';
-}
+import type { Task, TodoState } from '../../types';
 
 // Initial state for the todo slice
 const initialState: TodoState = {
